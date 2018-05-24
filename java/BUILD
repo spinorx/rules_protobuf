@@ -14,6 +14,7 @@ proto_language(
         "@com_google_code_findbugs_jsr305//jar",
         "@com_google_instrumentation_instrumentation_api//jar",
         "@io_opencensus_opencensus_api//jar",
+        "@io_opencensus_opencensus_contrib_grpc_metrics//jar",
         "@io_netty_netty_codec_http2//jar",
         "@io_netty_netty_codec_http//jar",
         "@io_netty_netty_codec//jar",
@@ -121,6 +122,8 @@ genrule(
     name = "protoc_gen_grpc_java_bin",
     srcs = select({
         ":darwin": ["@protoc_gen_grpc_java_macosx//file"],
+        ":windows": ["@protoc_gen_grpc_java_windows_x86_64//file"],
+        ":windows_msvc": ["@protoc_gen_grpc_java_windows_x86_64//file"],
         "//conditions:default": ["@protoc_gen_grpc_java_linux_x86_64//file"],
     }),
     outs = ["protoc_gen_grpc_java"],
@@ -137,7 +140,19 @@ genrule(
 
 config_setting(
     name = "darwin",
-    values = {"cpu": "darwin"},
+    values = {"host_cpu": "darwin"},
+    visibility = ["//visibility:private"],
+)
+
+config_setting(
+    name = "windows",
+    values = {"host_cpu": "x64_windows"},
+    visibility = ["//visibility:private"],
+)
+
+config_setting(
+    name = "windows_msvc",
+    values = {"host_cpu": "x64_windows_msvc"},
     visibility = ["//visibility:private"],
 )
 

@@ -14,6 +14,7 @@ def java_proto_repositories(
 
     "protoc_gen_grpc_java_linux_x86_64",
     "protoc_gen_grpc_java_macosx",
+    "protoc_gen_grpc_java_windows_x86_64",
 
     'com_google_api_grpc_proto_google_common_protos',
     'com_google_code_findbugs_jsr305',
@@ -21,13 +22,20 @@ def java_proto_repositories(
     'com_google_errorprone_error_prone_annotations',
     'com_google_guava_guava',
     'com_google_instrumentation_instrumentation_api',
+    'com_google_protobuf_nano_protobuf_javanano',
     'com_google_protobuf_protobuf_java',
     'com_google_protobuf_protobuf_java_util',
+    'com_squareup_okhttp_okhttp',
+    'com_squareup_okio_okio',
+    'io_grpc_grpc_all',
+    'io_grpc_grpc_auth',
     'io_grpc_grpc_context',
     'io_grpc_grpc_core',
     'io_grpc_grpc_netty',
+    'io_grpc_grpc_okhttp',
     'io_grpc_grpc_protobuf',
     'io_grpc_grpc_protobuf_lite',
+    'io_grpc_grpc_protobuf_nano',
     'io_grpc_grpc_stub',
     'io_netty_netty_buffer',
     'io_netty_netty_codec',
@@ -40,6 +48,7 @@ def java_proto_repositories(
     'io_netty_netty_resolver',
     'io_netty_netty_transport',
     'io_opencensus_opencensus_api',
+    'io_opencensus_opencensus_contrib_grpc_metrics',
 
     "junit_junit_4", # TODO: separate test requirements
 

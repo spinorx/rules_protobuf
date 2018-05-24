@@ -20,14 +20,20 @@ DEPS = {
 
     "protoc_gen_grpc_java_linux_x86_64": {
         "rule": "http_file",
-        "url": "https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/1.6.1/protoc-gen-grpc-java-1.6.1-linux-x86_64.exe",
-        "sha256": "4229579f6e2b09fbcbee7fbe5b7a7c06e800da5759032a39bac2f22e570cbdc0",
+        "url": "https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/1.9.0/protoc-gen-grpc-java-1.9.0-linux-x86_64.exe",
+        "sha256": "f20cc8c052eea904c5a979c140237696e3f187f35deac49cd70b16dc0635f463",
     },
 
     "protoc_gen_grpc_java_macosx": {
         "rule": "http_file",
-        "url": "https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/1.6.1/protoc-gen-grpc-java-1.6.1-osx-x86_64.exe",
-        "sha256": "9e3515e22e23a82927f37f6939990f2c668f5dfb9948853ec6a95ff14102a3bc",
+        "url": "http://central.maven.org/maven2/io/grpc/protoc-gen-grpc-java/1.9.0/protoc-gen-grpc-java-1.9.0-osx-x86_64.exe",
+        "sha256": "593937361f99e8b145fe29c78c71cdd00e8327ae88de010729479eb2acdc1de9",
+    },
+
+    "protoc_gen_grpc_java_windows_x86_64": {
+        "rule": "http_file",
+        "url": "https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/1.9.0/protoc-gen-grpc-java-1.9.0-windows-x86_64.exe",
+        "sha256": "28ee62f58f14fa1d33666e02c2c9dcca77ea98427446543c0ba00b7ea597d292",
     },
 
     # ######################
@@ -48,8 +54,13 @@ DEPS = {
     #
     'com_google_api_grpc_proto_google_common_protos': {
         'rule': 'maven_jar',
-        'artifact': 'com.google.api.grpc:proto-google-common-protos:0.1.9',
-        'sha1': '3760f6a6e13c8ab070aa629876cdd183614ee877',
+        'artifact': 'com.google.api.grpc:proto-google-common-protos:1.0.0',
+        'sha1': '86f070507e28b930e50d218ee5b6788ef0dd05e6',
+    },
+    'com_google_auth_google_auth_library_credentials': {
+        'rule': 'maven_jar',
+        'artifact': 'com.google.auth:google-auth-library-credentials:0.9.0',
+        'sha1': '8e2b181feff6005c9cbc6f5c1c1e2d3ec9138d46',
     },
     'com_google_code_findbugs_jsr305': {
         'rule': 'maven_jar',
@@ -63,8 +74,8 @@ DEPS = {
     },
     'com_google_errorprone_error_prone_annotations': {
         'rule': 'maven_jar',
-        'artifact': 'com.google.errorprone:error_prone_annotations:2.0.11',
-        'sha1': '3624d81fca4e93c67f43bafc222b06e1b1e3b260',
+        'artifact': 'com.google.errorprone:error_prone_annotations:2.1.2',
+        'sha1': '6dcc08f90f678ac33e5ef78c3c752b6f59e63e0c',
     },
     'com_google_guava_guava': {
         'rule': 'maven_jar',
@@ -76,100 +87,139 @@ DEPS = {
         'artifact': 'com.google.instrumentation:instrumentation-api:0.4.3',
         'sha1': '41614af3429573dc02645d541638929d877945a2',
     },
+    'com_google_protobuf_nano_protobuf_javanano': {
+        'rule': 'maven_jar',
+        'artifact': 'com.google.protobuf.nano:protobuf-javanano:3.0.0-alpha-5',
+        'sha1': '357e60f95cebb87c72151e49ba1f570d899734f8',
+    },
     'com_google_protobuf_protobuf_java': {
         'rule': 'maven_jar',
-        'artifact': 'com.google.protobuf:protobuf-java:3.4.0',
-        'sha1': 'b32aba0cbe737a4ca953f71688725972e3ee927c',
+        'artifact': 'com.google.protobuf:protobuf-java:3.5.1',
+        'sha1': '8c3492f7662fa1cbf8ca76a0f5eb1146f7725acd',
     },
     'com_google_protobuf_protobuf_java_util': {
         'rule': 'maven_jar',
-        'artifact': 'com.google.protobuf:protobuf-java-util:3.3.1',
-        'sha1': '35d048270e0b2f29e7e4a45daf21d46d1b121a24',
+        'artifact': 'com.google.protobuf:protobuf-java-util:3.5.1',
+        'sha1': '6e40a6a3f52455bd633aa2a0dba1a416e62b4575',
+    },
+    'com_squareup_okhttp_okhttp': {
+        'rule': 'maven_jar',
+        'artifact': 'com.squareup.okhttp:okhttp:2.5.0',
+        'sha1': '4de2b4ed3445c37ec1720a7d214712e845a24636',
+    },
+    'com_squareup_okio_okio': {
+        'rule': 'maven_jar',
+        'artifact': 'com.squareup.okio:okio:1.6.0',
+        'sha1': '98476622f10715998eacf9240d6b479f12c66143',
+    },
+    'io_grpc_grpc_all': {
+        'rule': 'maven_jar',
+        'artifact': 'io.grpc:grpc-all:1.9.0',
+        'sha1': '442dfac27fd072e15b7134ab02c2b38136036090',
+    },
+    'io_grpc_grpc_auth': {
+        'rule': 'maven_jar',
+        'artifact': 'io.grpc:grpc-auth:1.9.0',
+        'sha1': 'd2eadc6d28ebee8ec0cef74f882255e4069972ad',
     },
     'io_grpc_grpc_context': {
         'rule': 'maven_jar',
-        'artifact': 'io.grpc:grpc-context:1.6.1',
-        'sha1': '9c52ae577c2dd4b8c6ac6e49c1154e1dc37d98ee',
+        'artifact': 'io.grpc:grpc-context:1.9.0',
+        'sha1': '28b0836f48c9705abf73829bbc536dba29a1329a',
     },
     'io_grpc_grpc_core': {
         'rule': 'maven_jar',
-        'artifact': 'io.grpc:grpc-core:1.6.1',
-        'sha1': '871c934f3c7fbb477ccf2dd4c2a47a0bcc1b82a9',
+        'artifact': 'io.grpc:grpc-core:1.9.0',
+        'sha1': 'cf76ab13d35e8bd5d0ffad6d82bb1ef1770f050c',
     },
     'io_grpc_grpc_netty': {
         'rule': 'maven_jar',
-        'artifact': 'io.grpc:grpc-netty:1.6.1',
-        'sha1': '6941e41b5f422da1670d5d01bf476644330b536e',
+        'artifact': 'io.grpc:grpc-netty:1.9.0',
+        'sha1': '8157384d87497dc18604a5ba3760763fe643f16e',
+    },
+    'io_grpc_grpc_okhttp': {
+        'rule': 'maven_jar',
+        'artifact': 'io.grpc:grpc-okhttp:1.9.0',
+        'sha1': '4e7fbb9d3cd65848f42494de165b1c5839f69a8a',
     },
     'io_grpc_grpc_protobuf': {
         'rule': 'maven_jar',
-        'artifact': 'io.grpc:grpc-protobuf:1.6.1',
-        'sha1': 'a309df5d2627422ceb9cb08fb6a240656d75760a',
+        'artifact': 'io.grpc:grpc-protobuf:1.9.0',
+        'sha1': '94ca247577e4cf1a38d5ac9d536ac1d426a1ccc5',
     },
     'io_grpc_grpc_protobuf_lite': {
         'rule': 'maven_jar',
-        'artifact': 'io.grpc:grpc-protobuf-lite:1.6.1',
-        'sha1': '124bca81a50bc76b6a6babcc4bc529e5a93db70f',
+        'artifact': 'io.grpc:grpc-protobuf-lite:1.9.0',
+        'sha1': '9dc9c6531ae0b304581adff0e9b7cff21a4073ac',
+    },
+    'io_grpc_grpc_protobuf_nano': {
+        'rule': 'maven_jar',
+        'artifact': 'com.google.protobuf:protobuf-java:3.5.1',
+        'sha1': '8c3492f7662fa1cbf8ca76a0f5eb1146f7725acd',
     },
     'io_grpc_grpc_stub': {
         'rule': 'maven_jar',
-        'artifact': 'io.grpc:grpc-stub:1.6.1',
-        'sha1': 'f32b7ad69749ab6c7be5dd21f1e520a315418790',
+        'artifact': 'io.grpc:grpc-stub:1.9.0',
+        'sha1': '20e310f888860a27dfa509a69eebb236417ee93f',
     },
     'io_netty_netty_buffer': {
         'rule': 'maven_jar',
-        'artifact': 'io.netty:netty-buffer:4.1.14.Final',
-        'sha1': '71f0a707209b1356d924d6f8b2f415f8b8e1cf82',
+        'artifact': 'io.netty:netty-buffer:4.1.17.Final',
+        'sha1': 'fdd68fb3defd7059a7392b9395ee941ef9bacc25',
     },
     'io_netty_netty_codec': {
         'rule': 'maven_jar',
-        'artifact': 'io.netty:netty-codec:4.1.14.Final',
-        'sha1': 'b8573ae401f17e6927f158e4c446311bf0646173',
+        'artifact': 'io.netty:netty-codec:4.1.17.Final',
+        'sha1': '1d00f56dc9e55203a4bde5aae3d0828fdeb818e7',
     },
     'io_netty_netty_codec_http': {
         'rule': 'maven_jar',
-        'artifact': 'io.netty:netty-codec-http:4.1.14.Final',
-        'sha1': 'f287b593a37e516f98c9dae7337303e7254e8ea1',
+        'artifact': 'io.netty:netty-codec-http:4.1.17.Final',
+        'sha1': '251d7edcb897122b9b23f24ff793cd0739056b9e',
     },
     'io_netty_netty_codec_http2': {
         'rule': 'maven_jar',
-        'artifact': 'io.netty:netty-codec-http2:4.1.14.Final',
-        'sha1': '00d2af27befab8e1abfbf37d1ac2a5185dce1dbe',
+        'artifact': 'io.netty:netty-codec-http2:4.1.17.Final',
+        'sha1': 'f9844005869c6d9049f4b677228a89fee4c6eab3',
     },
     'io_netty_netty_codec_socks': {
         'rule': 'maven_jar',
-        'artifact': 'io.netty:netty-codec-socks:4.1.14.Final',
-        'sha1': 'b8d856c686ac960b9e9b9f8f9b4083978c161327',
+        'artifact': 'io.netty:netty-codec-socks:4.1.17.Final',
+        'sha1': 'a159bf1f3d5019e0d561c92fbbec8400967471fa',
     },
     'io_netty_netty_common': {
         'rule': 'maven_jar',
-        'artifact': 'io.netty:netty-common:4.1.14.Final',
-        'sha1': '230ff063651295d2695c0b4e9411e22bbbb9c09d',
+        'artifact': 'io.netty:netty-common:4.1.17.Final',
+        'sha1': '581c8ee239e4dc0976c2405d155f475538325098',
     },
     'io_netty_netty_handler': {
         'rule': 'maven_jar',
-        'artifact': 'io.netty:netty-handler:4.1.14.Final',
-        'sha1': '626a48b846736c944eb35dd9b0fe0435b76ebf93',
+        'artifact': 'io.netty:netty-handler:4.1.17.Final',
+        'sha1': '18c40ffb61a1d1979eca024087070762fdc4664a',
     },
     'io_netty_netty_handler_proxy': {
         'rule': 'maven_jar',
-        'artifact': 'io.netty:netty-handler-proxy:4.1.14.Final',
-        'sha1': '9dbedd6cc6ab9299c927d0c73791d3d8fd76ac20',
+        'artifact': 'io.netty:netty-handler-proxy:4.1.17.Final',
+        'sha1': '9330ee60c4e48ca60aac89b7bc5ec2567e84f28e',
     },
     'io_netty_netty_resolver': {
         'rule': 'maven_jar',
-        'artifact': 'io.netty:netty-resolver:4.1.14.Final',
-        'sha1': 'f91e0197522e7d33fce84b3dfd86ade15edb0006',
+        'artifact': 'io.netty:netty-resolver:4.1.17.Final',
+        'sha1': '8f386c80821e200f542da282ae1d3cde5cad8368',
     },
     'io_netty_netty_transport': {
         'rule': 'maven_jar',
-        'artifact': 'io.netty:netty-transport:4.1.14.Final',
-        'sha1': '3ed6474f1289635fc0696ec37380e20f258950a2',
+        'artifact': 'io.netty:netty-transport:4.1.17.Final',
+        'sha1': '9585776b0a8153182412b5d5366061ff486914c1',
     },
     'io_opencensus_opencensus_api': {
         'rule': 'maven_jar',
-        'artifact': 'io.opencensus:opencensus-api:0.5.1',
-        'sha1': 'cbd0a716a7d85ac34b83d86b13f0a6655e45c2ba',
+        'artifact': 'io.opencensus:opencensus-api:0.10.0',
+        'sha1': '46bcf07e0bd835022ccd531d99c3eb813382d4d8',
     },
-
+    'io_opencensus_opencensus_contrib_grpc_metrics': {
+        'rule': 'maven_jar',
+        'artifact': 'io.opencensus:opencensus-contrib-grpc-metrics:0.10.0',
+        'sha1': 'e47f918dc577b6316f57a884c500b13a98d3c11b',
+    }
 }

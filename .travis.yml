@@ -8,8 +8,9 @@ os:
   - osx
 
 env:
-  - V=0.5.4
-  - V=0.5.2
+  - V=0.12.0
+  - V=0.11.1
+  - V=0.8.0
 
 before_install:
   - OS=linux
@@ -27,7 +28,6 @@ before_install:
   - chmod +x install.sh
   - ./install.sh --user
   - rm -f install.sh
-  - sudo pip install grpcio==1.6.0
 
 script:
   - make all
